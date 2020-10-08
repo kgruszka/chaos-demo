@@ -1,0 +1,43 @@
+{
+    "version": "1.0.0",
+    "title": "What is the impact of external jokes API being unreachable",
+    "description": "Our API should respond with jokes even if external jokes API is down",
+    "steady-state-hypothesis": {
+        "title": "Our API responds with jokes",
+        "probes": [
+            {
+                "type": "probe",
+                "name": "our-api-returns-jokes",
+                "tolerance": 200,
+                "provider": {
+                    "type": "http",
+                    "timeout": 5,
+                    "verify_tls": false,
+                    "url": "http://localhost:3000/joke"
+                }
+            }
+        ]
+    },
+    "method": [
+        {
+            "type": "action",
+            "name": "take-down-jokes-api",
+            "provider": {
+                "type": "process",
+                "path": "docker",
+                "arguments": "stop jokes-api"
+            }
+        }
+    ],
+    "rollbacks": [
+        {
+            "type": "action",
+            "name": "start-jokes-api",
+            "provider": {
+                "type": "process",
+                "path": "docker",
+                "arguments": "start jokes-api"
+            }
+        }
+    ]
+}

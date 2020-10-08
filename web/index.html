@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chuck Norris jokes</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <div class="fnc">
+        <p id="joke">Loading joke...</p>
+    </div>
+    <script>
+        fetch('http://localhost:3000/joke')
+            .then(response => response.json())
+            .then(({ joke }) => document.getElementById("joke").innerHTML = joke)
+    </script>
+</body>
+
+</html>
+

@@ -1,0 +1,24 @@
+{
+  "name": "resilient-api",
+  "version": "1.0.0",
+  "description": "Chaos experiment demo with ChaosToolkit",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgruszka/chaos-demo.git"
+  },
+  "author": "kgruszka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kgruszka/chaos-demo/issues"
+  },
+  "homepage": "https://github.com/kgruszka/chaos-demo#readme",
+  "dependencies": {
+    "fastify": "^3.5.1",
+    "fastify-cors": "^4.1.0",
+    "got": "^11.7.0"
+  }
+}
