@@ -14,12 +14,28 @@ Chaos experiment demo with ChaosToolkit
 This will run 2 docker containers: api & jokes-api (provider)
 
 ```sh
+make failing-up
+# or
+make resilient-up
+```
+
+Alternatively you can run
+
+```sh
 docker-compose -f docker-compose.failure.yaml up --build
 # or
 docker-compose -f docker-compose.resilient.yaml up --build
 ```
 
 To cleanup containers:
+
+```sh
+make failing-down
+# or
+make resilient-down
+```
+
+or
 
 ```sh
 docker-compose -f docker-compose.failure.yaml down
@@ -29,7 +45,7 @@ docker-compose -f docker-compose.resilient.yaml down
 
 You can test it by opening `web/index.html` in your browser. The page does the call to the api on each refresh.
 
-NOTE: api is exposed on the port 3000
+NOTE: API is exposed on the port 3000
 
 ## Chaos experiment
 
@@ -56,11 +72,20 @@ The experiment can be executed with ChaosToolkit
 ### Setup
 To create python `venv` and install ChaosToolkit just execute `setup.sh` in `chaos` directory:
 ```sh
-. ./setup.sh
+cd chaos
+source ./setup.sh
+cd ..
 ```
 
 ### Execute
-Having active `venv` with installed `chaos/requirements.txt` [(setup.sh)](#setup) you can execute in `chaos` directory:
+Having active `venv` with installed `chaos/requirements.txt` [(setup.sh)](#setup) you can execute 
+
+```sh
+make chaos-run
+```
+
+or in `chaos` directory:
+
 ```sh
 chaos run --rollback-strategy=always experiment.json
 ```

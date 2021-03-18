@@ -1,6 +1,6 @@
 {
     "version": "1.0.0",
-    "title": "What is the impact of external jokes API being unreachable",
+    "title": "External jokes API is not responding",
     "description": "Our API should respond with jokes even if external jokes API is down",
     "steady-state-hypothesis": {
         "title": "Our API responds with jokes",
