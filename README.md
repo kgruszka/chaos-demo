@@ -3,6 +3,10 @@ Chaos experiment demo with ChaosToolkit
 
 <img alt="diagram" src="./diagram.png">
 
+## Issues
+
+If you spot any issue with this repository please do raise an issue in Github
+
 ## Prerequisites
 
 * [python3](https://www.python.org/downloads/)
